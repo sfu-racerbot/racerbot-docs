@@ -1,1 +1,2 @@
-# racerbot-docs
+# SFU Racerbot Documentation
+
