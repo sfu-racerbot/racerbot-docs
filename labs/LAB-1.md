@@ -18,22 +18,21 @@
 4. Your terminal is now inside the container you built!
 5. If you close your terminal/container you can re-run it using `docker start -i f1tenth_lab1`. If you want to delete your container do: `docker rm f1tenth_lab1`.
 
+## 2. Set Up TMUX
+
 
 ## Commands
 
 - `ls`: lists the file and directories
 - `cd <path_to_go_to>` changes directory to the path given
 
-## Questions
+## Questions (outdated with foxy)
 
 Q1: During this assignment, you've probably ran these two following commands at some point: `source /opt/ros/foxy/setup.bash` and `source install/local_setup.bash`. Functionally what is the difference between the two?
 
 Q2: What does the `queue_size` argument control when creating a subscriber or a publisher? How does different `queue_size` affect how messages are handled?
 
 Q3: Do you have to call `colcon build` again after you've changed a launch file in your package? (Hint: consider two cases: calling `ros2 launch` in the directory where the launch file is, and calling it when the launch file is installed with the package.)
-
-## Glossary
-
 
 ## Credits
 - Written by Milad Abdi and adapted from [f1tenth lab 1](https://github.com/f1tenth/f1tenth_lab1_template/blob/24f7320ebf1b9a325a2039d4208204da4454d1ab).
