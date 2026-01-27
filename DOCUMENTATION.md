@@ -16,7 +16,8 @@
 
 ## ROS 2
 - [ROS 2](https://github.com/ros2/ros2)
-- [Docs](https://docs.ros.org/en/rolling/index.html)
+- [Docs](https://docs.ros.org/en/jazzy/index.html)
+- [Tutorial](https://docs.ros.org/en/jazzy/Tutorials.html)
 
 ## Autoware
 - [Autoware](https://github.com/autowarefoundation/autoware)
