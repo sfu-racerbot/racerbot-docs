@@ -58,7 +58,7 @@ Note the following topic names for your publishers and subscribers:
 - `AckermannDriveStamped`: /drive
 
 ## V: Deliverables and Submission
-Implement this node in C++. A skeleton package is already provided in the repo that you can use [here](). If you're using docker, develop **directly in the simulation container** provided, and put your package in `/sim_ws/src` alongside the simulation package.
+Implement this node in C++. A skeleton package is already provided in the repo that you can use [here](safety_node). If you're using docker, develop **directly in the simulation container** provided, and put your package in `/sim_ws/src` alongside the simulation package.
 When following the instruction in the simulation repo, the repo directory will be mounted to the sim container. You can also add extra volumes mounted for your convenience when editing the files. For example, if you're using the `rocker` tool:
 
 ```bash
