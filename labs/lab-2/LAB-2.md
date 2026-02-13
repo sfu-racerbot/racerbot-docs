@@ -57,7 +57,7 @@ Note the following topic names for your publishers and subscribers:
 - `Odometry`: /ego_racecar/odom, specifically, the longitudinal velocity of the vehicle can be found in `twist.twist.linear.x`
 - `AckermannDriveStamped`: /drive
 
-## V: Deliverables and Submission
+## V: Deliverables
 Implement this node in C++. A skeleton package is already provided in the repo that you can use [here](safety_node). If you're using docker, develop **directly in the simulation container** provided, and put your package in `/sim_ws/src` alongside the simulation package.
 When following the instruction in the simulation repo, the repo directory will be mounted to the sim container. You can also add extra volumes mounted for your convenience when editing the files. For example, if you're using the `rocker` tool:
 
@@ -73,13 +73,6 @@ Note that if you're using Windows, make sure your files have Unix style line end
 - Run your safety node in the simulation and:
     1. Show the car driving towards a wall and braking correctly.
     2. Drive the car with keyboard teleop along the hallways of Levine, showing it doesn't brake when travelling straight in the hallway. You need to show that your safe node doesn't generate false positives. i.e. The car doesn't suddenly stop while travelling down the hallway.
-
-## VI: Grading Rubric
-- Compilation: **30** Points
-- Provided Video: **20** Points
-- Correctly stops before collision: **30** Points
-- Correctly calculates TTC: **10** Points
-- Able to navigate through the hallway: **10** Points
 
 ## Credits
 Written by Milad Abdi and adapted from [f1tenth lab 2](https://github.com/f1tenth/f1tenth_lab2_template).

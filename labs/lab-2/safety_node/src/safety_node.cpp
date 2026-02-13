@@ -4,10 +4,9 @@
 #include "nav_msgs/msg/odometry.hpp"
 #include "ackermann_msgs/msg/ackermann_drive_stamped.hpp"
 
-
-class Safety : public rclcpp::Node {
 // The class that handles emergency braking
-
+class Safety : public rclcpp::Node
+{
 public:
     Safety() : Node("safety_node")
     {
@@ -27,7 +26,7 @@ public:
     }
 
 private:
-    double speed = 0.0;
+    double speed_ = 0.0;
     /// TODO: create ROS subscribers and publishers
 
     void drive_callback(const nav_msgs::msg::Odometry::ConstSharedPtr msg)
@@ -41,11 +40,10 @@ private:
 
         /// TODO: publish drive/brake message
     }
-
-
-
 };
-int main(int argc, char ** argv) {
+
+int main(int argc, char ** argv)
+{
     rclcpp::init(argc, argv);
     rclcpp::spin(std::make_shared<Safety>());
     rclcpp::shutdown();
