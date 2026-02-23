@@ -4,7 +4,7 @@ These are instructions for using a containerized ROS communication bridge for th
 ## Setting up the Simulation
 
 ### Entering your workspace
-1. For setting up the simulation, these instructions assume you are inside your `racerbot_ws` from doing `docker start -ai racerbot`. If you want to set up the simulator in its own workspace (**not recommended**) follow the instructions from [here](https://github.com/sfu-racerbot/f1tenth_gym_ros) instead.
+1. To set up the simulation, these instructions assume you are inside your `racerbot_ws` in a Humble Docker container with **port forwarding** enabled to communicate with the simulator (i.e., `-p 127.0.0.1:8765:8765`). It is **recommended** to use the [Official Workspace](https://github.com/sfu-racerbot/racerbot_ws). If you want to set up the simulator in its own workspace (**not recommended**), follow the instructions [here](https://github.com/sfu-racerbot/f1tenth_gym_ros) instead.
 
 ### Set up Virtual Environment (once per workspace)
 1. Setup the virtual environment in your workspace folder:
