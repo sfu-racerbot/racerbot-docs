@@ -4,6 +4,7 @@
 
 The scope of lab3 is to learn and experiment with the maths 
 behind the **2D rigid body Transformations** and **PID control systems formula**. 
+Although ros2 tf library already provide us static and dynamic transformations, we should still learn how under the hood works.
 
 here are two provided lab code that can allow the ros2 car simulation drive automatically, you need to configure your
 sim.yaml inside config and manually add pid_auto_drive node, along with the parameters and PID values,
