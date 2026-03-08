@@ -14,7 +14,7 @@
     2. Find range, heading, pose, and velocity.
     3. Determine/isolate the critical object (may not be the closest).
     4. Check the trajectory for imminent collision.
-- **Different information about detected objects**:
+- **Different information about detected objects:**
 	- **Range:** Distance to the object.
 	- **Heading:** Object orientation.
 	- **Pose:** Object’s position and orientation in space (includes range and heading).
@@ -88,7 +88,7 @@
     - Effective range for this setup: ~10 meters.
 - **Basic Principle:**
     - LIDAR shoots a laser beam at an object and measures the **time for the beam to reflect back**.
-    - **Distance to obstacle**: $\text{Distance}=\dfrac{(\text{speed of light})(\text{time traveled})}{2}$.
+    - **Distance to obstacle:** $\text{Distance}=\dfrac{(\text{speed of light})(\text{time traveled})}{2}$.
     - Maximum range is limited by the laser energy.
 - **Signal-to-Noise Considerations:**  
 	- Energy of reflected ray depends on:
@@ -104,16 +104,16 @@
 	- Angular resolution: covers **270° horizontal field of view**, 40 times per second.
 - **Visual: Single scan from a planar laser range-finder**
 	![Hokuyo LIDAR Scan](/assets/HOKUYO-LIDAR.png)
-- **Header header**: Timestamp is the acquisition time of the first ray in the scan.
-- **float32 angle_min**: Start angle of the scan (rad).
-- **float32 angle_max**: End angle of the scan (rad).
-- **float32 angle_increment**: Angular distance between measurements (rad).
-- **float32 time_increment**: Time between individual measurements (s).
-- **float32 scan_time**: Time between scans (s).
-- **float32 range_min**: Minimum valid range (m).
-- **float32 range_max**: Maximum valid range (m).
-- **float32[] ranges**: Distance measurements (m); discard values <<< range_min or >>> range_max.
-- **float32[] intensities**: Intensity measurements (device-specific units).
+- **Header header:** Timestamp is the acquisition time of the first ray in the scan.
+- **float32 angle_min:** Start angle of the scan (rad).
+- **float32 angle_max:** End angle of the scan (rad).
+- **float32 angle_increment:** Angular distance between measurements (rad).
+- **float32 time_increment:** Time between individual measurements (s).
+- **float32 scan_time:** Time between scans (s).
+- **float32 range_min:** Minimum valid range (m).
+- **float32 range_max:** Maximum valid range (m).
+- **float32[] ranges:** Distance measurements (m); discard values <<< range_min or >>> range_max.
+- **float32[] intensities:** Intensity measurements (device-specific units).
 - **Key Point:**
 	- The most important field is **`ranges`**: it contains distances to obstacles.
 	- Array `A[1080]`: `A[i]` = distance measurement of the **i-th step**.
@@ -133,21 +133,21 @@
 Therefore, we need to consider both **relative distance** and the **rate of change of relative distance**.
 
 ### Time-to-Collision (TTC)
-- **Time-to-Collision (TTC)**: TTC is the time it would take for the ego vehicle and an object to collide, assuming both maintain their current heading and velocity.
+- **Time-to-Collision (TTC):** TTC is the time it would take for the ego vehicle and an object to collide, assuming both maintain their current heading and velocity.
 - **Visual: TTC Illustration**  
 ![TTC Illustration](/assets/TTC.png)
-- **Definition**: $`\mathrm{TTC}_i(t) = \frac{r_i(t)}{[-\dot r_i(t)]_+}`$, where $[x]_+ = \max(x,0)$.
+- **Definition:** $`\mathrm{TTC}_i(t) = \frac{r_i(t)}{[-\dot r_i(t)]_+}`$, where $[x]_+ = \max(x,0)$.
 - **Range**: $r_i(t)$ is the distance between the vehicle and object $i$.
-- **Range-rate**: $\dot r_i(t)$ is the time derivative of the range (range-rate).
-- **Property**: $\mathrm{TTC}_i(t) \to \infty$ when $\dot r_i(t) > 0$ (object moving away).
-- **Range-rate computation**: Obtained by projecting the relative velocity onto the vector between the vehicle and the object’s pose.
-- **Static obstacle case**: $\dot r_i = v_x \cos(\theta_i)$, where $v_x$ is forward speed in the vehicle’s reference frame and $\theta_i$ is the laser beam angle.
+- **Range-rate:** $\dot r_i(t)$ is the time derivative of the range (range-rate).
+- **Property:** $\mathrm{TTC}_i(t) \to \infty$ when $\dot r_i(t) > 0$ (object moving away).
+- **Range-rate computation:** Obtained by projecting the relative velocity onto the vector between the vehicle and the object’s pose.
+- **Static obstacle case:** $\dot r_i = v_x \cos(\theta_i)$, where $v_x$ is forward speed in the vehicle’s reference frame and $\theta_i$ is the laser beam angle.
 
 ### Planar LIDAR Application
 - Using a ROS interface, we can control the field of view and capture distance estimates from a planar LIDAR.
-- **Planar LIDAR application**: Compute $\mathrm{TTC}_i$ for each laser beam.
-- **Braking threshold**: Define an acceptable braking threshold $T$.
-- **Decision rule**: Apply brakes if $\mathrm{TTC}_i \le T$.
+- **Planar LIDAR application:** Compute $\mathrm{TTC}_i$ for each laser beam.
+- **Braking threshold:** Define an acceptable braking threshold $T$.
+- **Decision rule:** Apply brakes if $\mathrm{TTC}_i \le T$.
 
 ## Safety Lab Overview
 - Implement a Time-to-Collision (TTC) based safety node in the simulator.

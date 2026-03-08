@@ -1,9 +1,9 @@
 # Roadmap
 
 1. [Lecture 1](https://www.youtube.com/watch?v=v6w_zVHL8WQ)
-    - [Lecture 1 Notes](notes/Lecture-1.pdf) (optional)
+    - [Lecture 1 Notes](notes/LECTURE-1.md) (optional)
 2. [Tutorial 1](https://www.youtube.com/watch?v=EU-QaO6xTv4)
-    - [Tutorial 1 Notes](notes/Tutorial-1.pdf) (optional)
+    - [Tutorial 1 Notes](notes/TUTORIAL-1.md) (optional)
 3. [Lab 1](labs/lab-1/)
 4. [Lecture 2](https://www.youtube.com/watch?v=k4FQ-dZ0Lp8)
     - [Lecture 2 Notes](notes/LECTURE-2.md) ([This part is very helpful for lab 2](notes/LECTURE-2.md#working-with-laser-scan-data))
