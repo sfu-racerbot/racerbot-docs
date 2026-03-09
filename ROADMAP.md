@@ -15,3 +15,5 @@
     - [Lecture 3 Notes](notes/LECTURE-3.md) ([This part is very helpful for understanding the math](notes/LECTURE-3.md#rigid-body-transformations))
 8. [Tutorial 3](https://docs.google.com/presentation/d/1GjGW39ufWI3bDcy7rMcaRYin_11soNIzCh2CtzO7580/edit?slide=id.p#slide=id.p)
     - [Tutorial 3 Notes](notes/TUTORIAL-3.md) (optional)
+9. [Lecture 4](https://www.youtube.com/watch?v=qIpiqhO3ITY)
+    - [Lecture 4 Notes](notes/LECTURE-4.md) (optional)
