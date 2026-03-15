@@ -103,7 +103,7 @@
 	- Each scan produces **1080 rays**, separated by **0.25°**.
 	- Angular resolution: covers **270° horizontal field of view**, 40 times per second.
 - **Visual: Single scan from a planar laser range-finder**
-	![Hokuyo LIDAR Scan](/assets/HOKUYO-LIDAR.png)
+	![Hokuyo LIDAR Scan](/assets/module-a/hokyuo-lidar.png)
 - **Header header:** Timestamp is the acquisition time of the first ray in the scan.
 - **float32 angle_min:** Start angle of the scan (rad).
 - **float32 angle_max:** End angle of the scan (rad).
@@ -135,7 +135,7 @@ Therefore, we need to consider both **relative distance** and the **rate of chan
 ### Time-to-Collision (TTC)
 - **Time-to-Collision (TTC):** TTC is the time it would take for the ego vehicle and an object to collide, assuming both maintain their current heading and velocity.
 - **Visual: TTC Illustration**  
-![TTC Illustration](/assets/TTC.png)
+![TTC Illustration](/assets/module-a/ttc.png)
 - **Definition:** $`\mathrm{TTC}_i(t) = \frac{r_i(t)}{[-\dot r_i(t)]_+}`$, where $[x]_+ = \max(x,0)$.
 - **Range**: $r_i(t)$ is the distance between the vehicle and object $i$.
 - **Range-rate:** $\dot r_i(t)$ is the time derivative of the range (range-rate).

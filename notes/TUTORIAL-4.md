@@ -32,7 +32,7 @@
 ![Jetson Xavier NX](/assets/module-b/Jetson-Xavier-NX.png)
 
 **VESC**  
-![VESC](/assets/module-b/VESC.png)
+![VESC](/assets/module-b/vesc.png)
 
 **Power Board 1/2**  
 ![Power Board 1](/assets/module-b/power-board-1.png)

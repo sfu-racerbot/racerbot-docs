@@ -45,7 +45,7 @@
     2. Behavioral Planner: Choices at each step. E.g., Drive or Pause
     3. Local Planner: Act. E.g., this is the best trajectory -> generate sequence of steering and acceleration inputs to follow that path
 - **Visual: PPC**
-	![PPC](/assets/PPC.png)
+	![PPC](/assets/module-a/ppc.png)
 
 ## Pipeline Continuation: Hardware (sensors) -> Software (PPC) -> Hardware (race car)
 - **Perception:** 

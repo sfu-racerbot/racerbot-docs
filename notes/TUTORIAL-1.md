@@ -146,7 +146,7 @@
 	- **Publishes a message to a topic from the command line**: `ros2 topic pub <topic_name> <msg_type> '<args>'`
 	- **Displays the publishing frequency of a topic**: `ros2 topic hz <topic_name>`
     - **Visual: Topic Diagram**
-	![Topic Diagram](/assets/TOPIC.png)
+	![Topic Diagram](/assets/module-a/topic.png)
 - **Services**: Services are another method of communication for nodes in the ROS graph. Services are based on call-and-response model, versus topics' publisher-subscriber model. While topics allow nodes to subscribe to data streams and get continual updates, **services only provide data when they are specifically called by a client**.
 	- Can be many service clients using the same service. But **only one** service server for a service.
 	- **Lists all active services**: `ros2 service list`
@@ -156,13 +156,13 @@
 	- **Displays the structure of a service type (what type of data it needs for a request and what for response)**: `ros2 interface show <type_name>.srv`
 	- **Calls a service from the command line**: `ros2 service call <service_name> <service_type> '<args>'`
 	- **Visual: Service Diagram**
-	![Service Diagram](/assets/SERVICE.png)
+	![Service Diagram](/assets/module-a/service.png)
 - **Actions**: Actions are type of communication method meant for **long running tasks**. Consist of: a goal, feedback, and a result.
 	- Actions are built on topics and services.
 	- Unlike services, actions are preemptable (you can cancel them while executing) and provide steady feedback.
 	- An "action client" node sends a goal to an "action server" node that acknowledges the goal and returns a stream of feedback and a result.
 	- **Visual: Action Diagram**
-	![Action Diagram](/assets/ACTION.png)
+	![Action Diagram](/assets/module-a/action.png)
 - **Parameters**: Configuration value for nodes (node settings). 
 	- Each node maintains its own parameters (such as `int`, `float`, `bool`, etc).
 	- All parameters are dynamically reconfigurable and built off ROS 2 services.
