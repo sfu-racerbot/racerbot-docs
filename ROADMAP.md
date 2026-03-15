@@ -1,5 +1,6 @@
 # Roadmap
 
+## Module A
 1. [Lecture 1](https://www.youtube.com/watch?v=v6w_zVHL8WQ)
     - [Lecture 1 Notes](notes/LECTURE-1.md) (optional)
 2. [Tutorial 1](https://www.youtube.com/watch?v=EU-QaO6xTv4)
@@ -15,6 +16,7 @@
     - [Lecture 3 Notes](notes/LECTURE-3.md) ([This part is very helpful for understanding the math](notes/LECTURE-3.md#rigid-body-transformations))
 8. [Tutorial 3](https://docs.google.com/presentation/d/1GjGW39ufWI3bDcy7rMcaRYin_11soNIzCh2CtzO7580/edit?slide=id.p#slide=id.p)
     - [Tutorial 3 Notes](notes/TUTORIAL-3.md) (optional)
+## Module B
 9. [Lecture 4](https://www.youtube.com/watch?v=qIpiqhO3ITY)
     - [Lecture 4 Notes](notes/LECTURE-4.md) (optional)
 10. [Tutorial 4](https://docs.google.com/presentation/d/1UCK95gx2mgJhX8YmabORjkEsaA3jR8FudmndzV3sHY4/edit?slide=id.p#slide=id.p)
