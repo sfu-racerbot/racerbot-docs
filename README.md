@@ -40,3 +40,6 @@
 ## Autoware
 - [Autoware](https://github.com/autowarefoundation/autoware)
 - [Docs](https://autowarefoundation.github.io/autoware-documentation/main/home/)
+
+## NVIDIA Jetson
+- [NVIDIA Jetson Setup Guide](/resources/NVIDIA_JETSON_SETUP.md)
