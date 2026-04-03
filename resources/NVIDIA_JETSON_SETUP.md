@@ -40,3 +40,31 @@ Accept the terms and conditions, then click the big green continue button.
 It may prompt you during the installation to set a username and password, please consult an executive before doing so.
 
 Once the installation is finished, it is safe to close the SDK manager and unplug the Jetson.
+
+## How to remotely access the Jetson
+
+## SSH
+Connect the Jetson to the same network as your computer, and run `ip addr`. The number that looks like `xxx.xxx.xxx.xx` is the IP address.
+
+On your computer, open a terminal and run `ssh username@ip_address`. At the first prompt type `yes` and then enter the password for the user. Now you should have a remote shell
+into the Jetson
+
+## Remote Desktop
+Connect the Jetson to the same network as your computer, and run `ip addr`. The number that looks like `xxx.xxx.xxx.xx` is the IP address.
+
+With the Jetson hooked up to a monitor/mouse/keyboard, press the Windows key, go to the search bar and type `settings`. Then open settings. Go to the sharing section and click
+`Remote Desktop`, set remote desktop to `on` and look at the username and password for it. Also toggle on `Allow Screen Control`
+
+### Windows
+Open the start menu and search for `Remote Desktop Connection`, open it up and in the `Computer` field type the IP address of the Jetson. It will then prompt you for a username
+and password, enter the username and password you saw before (not the one to login, for some reason it's different).
+
+You should now be remotely connected to the Jetson and can safely disconnect the monitor/keyboard/mouse.
+
+### Linux
+I highly reccomend looking into installing [Remmina](https://remmina.org/)
+
+## What to do on SFU Wi-Fi
+SFU's internet doesn't allow for easily connecting to local devices, so for now the best thing to do is create a hotspot from your computer. On Windows 11, go to Settings, go
+to Network, go to Mobile Hotspot and turn it on. Look at the SSID and password then connect the Jetson to that network. In the table below the QR code it will show you the IP
+address of the Jetson. Use that to Remote Desktop or SSH into the Jetson. 
