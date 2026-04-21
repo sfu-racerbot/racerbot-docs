@@ -18,18 +18,20 @@
     - [Lecture 2 Notes](notes/LECTURE-2.md) ([This](notes/LECTURE-2.md#working-with-laser-scan-data) part is very helpful for lab 2)
 7. [Tutorial 2](https://www.youtube.com/watch?v=eeV9XHYXMlI)
     - [Tutorial 2 Notes](notes/TUTORIAL-2.md) (optional)
+8. [Lecture and Tutorial 2 Kahoot](https://create.kahoot.it/share/lecture-and-tutorial-2/ead9421e-e5a4-47a2-b341-b16bc6b0b2c8)
 
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
 
-8. [Lab 2](labs/lab-2/)
+9. [Lab 2](labs/lab-2/)
     - Make sure you set up the [Official Workspace](https://github.com/sfu-racerbot/racerbot_ws) for this lab and for the future.
 
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
 
-9. [Lecture 3](https://www.youtube.com/watch?v=XwNsJFcSQx4)
+10. [Lecture 3](https://www.youtube.com/watch?v=XwNsJFcSQx4)
     - [Lecture 3 Notes](notes/LECTURE-3.md) ([This](notes/LECTURE-3.md#rigid-body-transformations) part is very helpful for understanding the math)
-10. [Tutorial 3](https://docs.google.com/presentation/d/1GjGW39ufWI3bDcy7rMcaRYin_11soNIzCh2CtzO7580/edit?slide=id.p#slide=id.p)
+11. [Tutorial 3](https://docs.google.com/presentation/d/1GjGW39ufWI3bDcy7rMcaRYin_11soNIzCh2CtzO7580/edit?slide=id.p#slide=id.p)
     - [Tutorial 3 Notes](notes/TUTORIAL-3.md) (optional)
+12. [Lecture and Tutorial 3 Kahoot](https://create.kahoot.it/share/lecture-and-tutorial-3/5f7bdca4-fc09-4610-9e83-a0bd9d6a16f2)
 ## Module B: Reactive Methods
 1. [Lecture 4](https://www.youtube.com/watch?v=qIpiqhO3ITY)
     - [Lecture 4 Notes](notes/LECTURE-4.md) (optional)
