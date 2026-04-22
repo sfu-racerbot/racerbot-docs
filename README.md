@@ -6,6 +6,7 @@
 - [Official Workspace](https://github.com/sfu-racerbot/racerbot_ws)
 - [Labs](labs)
 - [Resources](resources)
+- [Kahoots](https://create.kahoot.it/profiles/92ba5d1e-3a52-4b1e-859e-b4fb60bf1cf7)
 - [Lecture & Tutorial Notes](notes)
 - [Contributing](CONTRIBUTING.md)
 
