@@ -47,3 +47,7 @@
 
 4. [Lecture 5](https://www.youtube.com/watch?v=5asfD-_Z9x8)
     - [Lecture 5 Notes](notes/LECTURE-5.md) (optional)
+
+<hr style="border-top: 1px dotted #bbb; background: transparent;">
+
+5. [Lab 4](labs/lab-4/)
