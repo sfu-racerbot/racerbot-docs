@@ -6,10 +6,12 @@
 
 ### Position ($p_1$, $p_2$)
 - Translation in global/local frame
-- Respective to the vehicle's center of gravity (CoG) or base frame
+- Relative to the vehicle's center of gravity (CoG) or base frame
 - Coordinates: (x, y) in meters
 
-VISUAL S4
+**Visual: Position**
+
+![Position](/assets/module-b/lecture-6/position.png)
 
 ### Heading (Orientation) ($\Psi$)
 - Rotation relative to x-axis in global/local frame
@@ -18,11 +20,13 @@ VISUAL S4
   - RPY, rotation matrix, quaternion
 - Pure rotation (no translation)
 
-VISUAL S5
+**Visual: Heading**
 
-Visual of representing angle with [0, 2π] vs. [-π, π]
+![Heading](/assets/module-b/lecture-6/heading.png)
 
-VISUAL S6
+**Visual: Representing angle with [0, 2π] vs. [-π, π]**
+
+![Heading Angle Representation](/assets/module-b/lecture-6/heading-angles.png)
 
 ### Frenet Frame
 - A way to describe position relative to a curved reference path instead of global (x, y) coordinates
@@ -43,7 +47,9 @@ VISUAL S6
   - $s$ tells you *where you are along the road*
   - $d$ tells you *how far off the centerline you are*
   
-VISUAL S9
+**Visual: Frenet Frame**
+
+![Frenet Frame](/assets/module-b/lecture-6/frenet-frame.png)
 
 ### Velocity ($v$)
 - Linear velocity in vehicle frame $(v_x, v_y)$
@@ -66,13 +72,17 @@ VISUAL S9
 - Pitch (y-axis): ωy, αy
 - Roll (x-axis): ωx, αx
 
-VISUAL S14
+**Visual: Rotation**
+
+![Rotation](/assets/module-b/lecture-6/rotation.png)
 
 ### Steering Angle (δ)
 - Angle between front wheel direction and vehicle x-axis
 - Units: radians/degrees
 
-VISUAL S15
+**Visual: Steering Angle**
+
+![Steering Angle](/assets/module-b/lecture-6/steering-angle.png)
 
 ### Tire & Slip Concepts
 
@@ -90,9 +100,11 @@ VISUAL S15
   - Positive → wheelspin (acceleration, burnouts)
   - Negative → wheel lock tendency (braking, ABS)
 
-VISUAL S17
+**Visual: Slip Angles**
 
-### Visaulizing your States
+![Slip Angles](/assets/module-b/lecture-6/slip-angles.png)
+
+### Visualizing your States
 **Visualize signals and behaviors to:**
 - Detect trends
 - Compute and analyze errors
@@ -103,7 +115,9 @@ VISUAL S17
   - matplotlib
   - rqt_plot
 
-VISUAL S19
+**Visual: Visualizing States**
+
+![Visualizing States](/assets/module-b/lecture-6/visualizing-states.png)
 
 ## Vehicle Dynamics
 
@@ -117,7 +131,9 @@ VISUAL S19
 - Understand vehicle response
 - Enable control and planning
 
-VISUAL S25
+**Visual: Purpose of Modeling**
+
+![Purpose of Modeling](/assets/module-b/lecture-6/purpose-of-modeling.png)
 
 ### System Types
 - Time-invariant: constant dynamics
@@ -134,18 +150,22 @@ VISUAL S25
 ### Model Tradeoff
 - **↑ Parameters → ↑ Accuracy**
 
-VISUAL S26
+**Visual: Dynamic Model Tradeoffs**
+
+![Dynamic Model Tradeoffs](/assets/module-b/lecture-6/dynamic-model-tradeoffs.png)
 
 ### Model Types
 - Analytical (equations)
 - Data-driven
 - Hybrid / residual physics
 
-VISUAL S27
+**Visual: Dynamic Model Types**
+
+![Dynamic Model Types](/assets/module-b/lecture-6/dynamic-model-types.png)
 
 ## System Dynamics
-Vehicle dynamics is the study of the vehicle in motion and its behavior during interaction with the driver.
-  - Understanding the behavior of the vehicle under certain driver input (e.g. turning the steering wheel, pressing the brake pedal, accelerating on a curve, etc.)
+Vehicle dynamics is the study of the vehicle in motion and its behavior during interaction with driver inputs.
+  - Understanding the behavior of the vehicle under certain driver inputs (e.g. turning the steering wheel, pressing the brake pedal, accelerating on a curve, etc.)
   - Study and verify if the vehicle response is safe and comfortable to the passenger
 
 Described via Ordinary Differential Equations (ODEs)
@@ -231,7 +251,13 @@ $$
 \tan(\delta) \approx \delta \quad \Rightarrow \quad \dot{\Psi} \approx \frac{v}{L}\,\delta
 $$
 
-VISUAL S38 S40
+**Visual: Kinematic Single Track Model 1/2**
+
+![Kinematic Single Track Model 1/2](/assets/module-b/lecture-6/kinematic-single-track-model-1.png)
+
+**Visual: Kinematic Single Track Model 2/2**
+
+![Kinematic Single Track Model 2/2](/assets/module-b/lecture-6/kinematic-single-track-model-2.png)
 
 ### Linear Single Track Model
 - Captures vehicle behavior closer to physical limits (includes tire forces)
@@ -246,9 +272,11 @@ Best for:
   - Aggressive / evasive maneuvers
   - Studying understeer / oversteer behavior
 
-VISUAL S42
+**Visual: Linear Single Track Model**
 
-#### Math
+![Position](/assets/module-b/lecture-6/linear-single-track-model.png)
+
+#### Linear Single Track Model
 
 - State and input:
 
@@ -354,9 +382,11 @@ $$
 
 #### Tire Model: Cornering Stiffness
 
-VISUAL S43
+**Visual: Cornering Stiffness**
 
-### Nonlinear Single Tack Model
+![Cornering Stiffness](/assets/module-b/lecture-6/cornering-stiffness.png)
+
+### Nonlinear Single Track Model
 - We want to plan evasive maneuvers closer to physical limits
 - Consider important effects such as understeer or oversteer
 
@@ -370,7 +400,9 @@ VISUAL S43
   - Pacejka (Magic Formula)
   - Fiala model
 
-VISUAL S48
+**Visual: Nonlinear Single Track Model**
+
+![Nonlinear Single Track Model](/assets/module-b/lecture-6/nonlinear-single-track-model.png)
 
 #### Math
 
@@ -472,7 +504,9 @@ $$
 - Tire modeling:
   - More detailed (can include nonlinear tire behavior)
 
-VISUAL S53
+**Visual: Double Track Model**
+
+![Double Track Model](/assets/module-b/lecture-6/double-track-model.png)
 
 ## Multi-Body Model
 - Most detailed vehicle model (high-fidelity)
@@ -490,11 +524,15 @@ VISUAL S53
 - Tire modeling:
   - Nonlinear tire models (more accurate at limits)
 
-VISUAL S54
+**Visual: Multi-Body Model**
+
+![Multi-Body Model](/assets/module-b/lecture-6/multi-body-model.png)
 
 ## Understeer vs Oversteer
 
-VISUAL S56
+**Visual: Understeer vs Oversteer**
+
+![Understeer vs Oversteer](/assets/module-b/lecture-6/understeer-vs-oversteer.png)
 
 ### Understeer ("Plowing")
 - Front tires reach friction limit first
@@ -594,7 +632,9 @@ VISUAL S56
 - $-$ Difficult in 3D, limited localization precision, fixed discretization (discretization = dividing space into fixed grid cells or steps)
 - Focus: small-scale robots (e.g. RoboRacer)
 
-VISUAL S72
+**Visual: Occupancy Grid Map**
+
+![Occupancy Grid Map](/assets/module-b/lecture-6/occupancy-grid-map.png)
 
 #### Point Cloud
 - 3D set of points representing surfaces in space
@@ -603,7 +643,9 @@ VISUAL S72
 - $-$ Expensive LiDAR sensors, large data volume, includes irrelevant points/noise
 - Focus: real-world passenger vehicles
 
-VISUAL S75, 76
+**Visual: Point Cloud Map**
+
+![Point Cloud Map](/assets/module-b/lecture-6/point-cloud-map.png)
 
 #### Feature Map
 - Map built from extracted landmarks / key features in the environment
@@ -613,7 +655,9 @@ VISUAL S75, 76
 - $-$ Not human-readable, no direct occupancy information
 - Focus: localization
 
-VISUAL S78 S79
+**Visual: Feature Map**
+
+![Feature Map](/assets/module-b/lecture-6/feature-map.png)
 
 #### Semantic Map
 - Map that assigns meaning (labels) to objects in the environment
@@ -623,7 +667,9 @@ VISUAL S78 S79
 - $-$ Depends on object detection quality, computationally expensive
 - Focus: object detection and scene understanding
 
-VISUAL S80
+**Visual: Semantic Map**
+
+![Semantic Map](/assets/module-b/lecture-6/semantic-map.png)
 
 #### HD Map
 - High-definition, highly detailed map of the driving environment
@@ -633,7 +679,9 @@ VISUAL S80
 - $-$ Expensive to create and maintain, high memory/bandwidth requirements
 - Focus: real-world passenger vehicles
 
-VISUAL S83
+**Visual: HD Map**
+
+![HD Map](/assets/module-b/lecture-6/hd-map.png)
 
 ## Key Takeaways
 - Vehicle state = position + orientation + motion
