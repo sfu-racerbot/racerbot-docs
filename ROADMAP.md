@@ -51,3 +51,10 @@
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
 
 5. [Lab 4](labs/lab-4/)
+
+<hr style="border-top: 1px dotted #bbb; background: transparent;">
+
+6. [Lecture 6](https://www.youtube.com/watch?v=8zr5NUS05cM)
+    - [Lecture 6 Notes](notes/LECTURE-6.md) (optional)
+
+## Module C: Mapping & Localization
