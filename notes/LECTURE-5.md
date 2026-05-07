@@ -60,7 +60,7 @@ Robot drives toward the **center of the widest gap**.
 
 **Visual: Largest Gap Failure**
 
-![Largest Gap Failure](/assets/module-b/largest-gap-failure.png)
+![Largest Gap Failure](/assets/module-b/lecture-5/largest-gap-failure.png)
 
 ### Holonomic vs Non-Holonomic
 
@@ -145,7 +145,7 @@ Meaning: Edge of an obstacle detected.
 
 **Visual: Disparity Extender Approach**
 
-![Disparity Extender Approach](/assets/module-b/disparity-extender-approach.png)
+![Disparity Extender Approach](/assets/module-b/lecture-5/disparity-extender-approach.png)
 
 ### Why It Works
 
@@ -183,7 +183,7 @@ Solution:
 
 **Visual: Disparity Extender Cornering**
 
-![Disparity Extender Cornering](/assets/module-b/disparity-extender-cornering.png)
+![Disparity Extender Cornering](/assets/module-b/lecture-5/disparity-extender-cornering.png)
 
 ### Known Failure Case — U-Turn Problem
 
@@ -199,7 +199,7 @@ This issue shouldn't occur on any track with a uniform width.
 
 **Visual: Disparity Extender U-turn**
 
-![Disparity Extender U-turn](/assets/module-b/disparity-extender-U-turn.png)
+![Disparity Extender U-turn](/assets/module-b/lecture-5/disparity-extender-U-turn.png)
 
 ## Final Follow-the-Gap Pipeline
 

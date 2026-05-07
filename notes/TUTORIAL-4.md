@@ -4,7 +4,7 @@
 
 ## 1. LiPo Batteries
 **Battery**  
-![Battery](/assets/module-b/battery.png)
+![Battery](/assets/module-b/tutorial-4/battery.png)
 - **Capacity:** Amount of power a battery can hold.
 - **C-rating:** Max safe discharge → Burst current = C × Capacity (e.g., 50C × 5Ah = 250A)
 - **Cell voltage:** 3.0–4.2V; nominal/storage 3.7V
@@ -23,25 +23,25 @@
 ## 2. Car Parts
 **Visual: Car Component Levels**
 **Car Levels**  
-![Car Levels](/assets/module-b/car-levels.png)
+![Car Levels](/assets/module-b/tutorial-4/car-levels.png)
 
 **Chassis**  
-![Chassis](/assets/module-b/chassis.png)
+![Chassis](/assets/module-b/tutorial-4/chassis.png)
 
 **Jetson Xavier NX**  
-![Jetson Xavier NX](/assets/module-b/Jetson-Xavier-NX.png)
+![Jetson Xavier NX](/assets/module-b/tutorial-4/Jetson-Xavier-NX.png)
 
 **VESC**  
-![VESC](/assets/module-b/vesc.png)
+![VESC](/assets/module-b/tutorial-4/vesc.png)
 
 **Power Board 1/2**  
-![Power Board 1](/assets/module-b/power-board-1.png)
+![Power Board 1](/assets/module-b/tutorial-4/power-board-1.png)
 
 **Power Board 2/2**  
-![Power Board 2](/assets/module-b/power-board-2.png)
+![Power Board 2](/assets/module-b/tutorial-4/power-board-2.png)
 
 **Battery Connection**  
-![Battery Connection](/assets/module-b/battery-connection.png)
+![Battery Connection](/assets/module-b/tutorial-4/battery-connection.png)
 
 
 ## 3. Powering the Car
@@ -121,7 +121,7 @@ rviz2
 
 ## 10. Teleop & Deadman’s Switch (Joystick)
 **Logitech Joystick**  
-![Logitech Joystick](/assets/module-b/joystick.png)
+![Logitech Joystick](/assets/module-b/tutorial-4/joystick.png)
 
 - Use **D mode** (mode light off).
 - Axis/buttons may need remapping depending on joystick.
@@ -167,7 +167,7 @@ ifconfig
 ```
 
 **Laptop Address**  
-![Laptop Address](/assets/module-b/laptop-address.png)
+![Laptop Address](/assets/module-b/tutorial-4/laptop-address.png)
 
 ## 12. Parameter Tuning
 Guide:  
