@@ -9,7 +9,6 @@
 - [Kahoots](https://create.kahoot.it/profiles/92ba5d1e-3a52-4b1e-859e-b4fb60bf1cf7)
 - [Lecture & Tutorial Notes](notes)
 - [Contributing](CONTRIBUTING.md)
-- [How to Contribute to Racerbot](https://github.com/sfu-racerbot/racerbot-docs/blob/main/CONTRIBUTING.md)
 
 ## UPenn RoboRacer (can be outdated)
 - [RoboRacer](https://roboracer.ai/)
