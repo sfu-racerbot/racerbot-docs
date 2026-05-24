@@ -65,9 +65,9 @@ ros2 launch f1tenth_gym_ros gym_bridge_launch.py
 3. Open [Foxglove](https://app.foxglove.dev/)
 4. Create an account
 5. Click on `Open Connection`, then click `Foxglove WebSocket` and paste in the websocket's address printed in the terminal in blue i.e `[INFO] [launch.user]: Foxglove WebSocket: ws://localhost:8765`. **Just put `ws://localhost:8765` as that is almost always the address.** If you can see the topics on the left, then the connection is complete.
-6. To visualize the simulation, you will need to change layout by importing the layout file `gym_bridge_foxglove.json` in the launch folder of this package.
+6. To visualize the simulation, you will need to change layout by importing the layout file `gym_bridge_foxglove.json` in the config folder of this package.
    - Click on the top right button `default` (Might be named something different but it is the closest button on the right to "ws://localhost:8765" in the top middle)
-   - Click import from file and open the `gym_bridge_foxglove.json` inside `racerbot/src/f1tenth_gym_ros/launch` folder.
+   - Click import from file and open the `gym_bridge_foxglove.json` inside `racerbot_ws/src/f1tenth_gym_ros/config/foxglove` folder.
 7. You can then run another node by creating another bash session in `tmux` or a separate terminal.
 8. Extra: [Foxglove Documentation](https://docs.foxglove.dev/docs) and [Slides showing how to use the simulator](https://docs.google.com/presentation/d/1ZH0S_Dn8dQs1g3JOH7Dz7HEdvfNYPRSv/edit?slide=id.g392d82339e7_2_105#slide=id.g392d82339e7_2_105). Foxglove is the recommended setup, but if you prefer RViz (old Gym setup), you can also use rviz to visualize the sim, with `gym_bridge.rviz` available in the launch folder of this package too.
 

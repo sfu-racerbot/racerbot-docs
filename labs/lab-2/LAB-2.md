@@ -2,7 +2,7 @@
 
 ## Set up the Simulation
 1. Please follow the instructions to set up and run the simulation [here](/resources/F1TENTH_GYM_ROS.md).
-2. Create a package in your workspace called `safety_node` with the following dependencies: `rclcpp`, `std_msgs`, `sensor_msgs`, `ackermann_msgs`, and `nav_msgs`.
+2. Create a package in your workspace called `safety_node` with the following dependencies: `rclcpp`, `sensor_msgs`, `ackermann_msgs`, and `nav_msgs`.
 3. Create `safety_node.cpp` inside `safety_node/src` and copy this template [safety_node](safety_node.cpp). Read the rest of the instructions, google documentation, and try your best to write the code!
 4. Using `tmux` run the simulator and your node in the same container. They should be able to communicate with each other.
 5. Do the two deliverables with your setup.
