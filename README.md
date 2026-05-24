@@ -20,7 +20,7 @@
 - [Tutorial](https://gist.github.com/bradtraversy/cc180de0edee05075a6139e42d5f28ce)
 
 ## Git and Docker
-- [Intro to Git & GitHub](https://docs.google.com/document/d/1I-W3dRKAqz8tCZDjqIyhy7EIEtikgnkj6uzjMqbhThY/edit?usp=sharing)
+- [Intro to Git & GitHub](resources/INTRO_TO_GIT_&_GITHUB.md)
 - [Git Docs](https://git-scm.com/docs)
 - [Git and GitHub Tutorial](https://www.w3schools.com/git/default.asp?remote=github)
 - [Docker Docs](https://docs.docker.com/reference/)
