@@ -54,13 +54,15 @@ Throughout using `ROS 2`, you may find this [workflow](/resources/WORKFLOW.md) d
 6. [Lecture 5](https://www.youtube.com/watch?v=5asfD-_Z9x8)
     - [Lecture 5 Notes](notes/LECTURE-5.md) (optional)
 
-<hr style="border-top: 1px dotted #bbb; background: transparent;">
-
-7. [Lab 4](labs/lab-4/)
+7. [Lecture 5 Kahoot](https://create.kahoot.it/details/c0387e6b-b4cc-4c85-8e1d-2793871de368?drawer=)
 
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
 
-8. [Lecture 6](https://www.youtube.com/watch?v=8zr5NUS05cM)
+8. [Lab 4](labs/lab-4/)
+
+<hr style="border-top: 1px dotted #bbb; background: transparent;">
+
+9. [Lecture 6](https://www.youtube.com/watch?v=8zr5NUS05cM)
     - [Lecture 6 Notes](notes/LECTURE-6.md) (optional)
 
 ## Module C: Mapping & Localization
