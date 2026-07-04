@@ -4,9 +4,9 @@ Throughout using `ROS 2`, you may find this [workflow](/resources/WORKFLOW.md) d
 
 ## Module A: Introduction to ROS, RoboRacer & the Simulator
 1. [Lecture 1](https://www.youtube.com/watch?v=v6w_zVHL8WQ)
-    - [Lecture 1 Notes](notes/LECTURE-1.md) (optional)
+    - [Lecture 1 Notes](notes/LECTURE-1.md)
 2. [Tutorial 1](https://www.youtube.com/watch?v=EU-QaO6xTv4)
-    - [Tutorial 1 Notes](notes/TUTORIAL-1.md) (optional)
+    - [Tutorial 1 Notes](notes/TUTORIAL-1.md)
 3. [Lecture and Tutorial 1 Kahoot](https://create.kahoot.it/share/lecture-and-tutorial-1/dc25149f-1b0f-433c-aa85-e827dbcf4edd)
 
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
@@ -19,7 +19,7 @@ Throughout using `ROS 2`, you may find this [workflow](/resources/WORKFLOW.md) d
 6. [Lecture 2](https://www.youtube.com/watch?v=k4FQ-dZ0Lp8)
     - [Lecture 2 Notes](notes/LECTURE-2.md) ([This](notes/LECTURE-2.md#working-with-laser-scan-data) part is very helpful for lab 2)
 7. [Tutorial 2](https://www.youtube.com/watch?v=eeV9XHYXMlI)
-    - [Tutorial 2 Notes](notes/TUTORIAL-2.md) (optional)
+    - [Tutorial 2 Notes](notes/TUTORIAL-2.md)
 8. [Lecture and Tutorial 2 Kahoot](https://create.kahoot.it/share/lecture-and-tutorial-2/ead9421e-e5a4-47a2-b341-b16bc6b0b2c8)
 
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
@@ -32,14 +32,14 @@ Throughout using `ROS 2`, you may find this [workflow](/resources/WORKFLOW.md) d
 10. [Lecture 3](https://www.youtube.com/watch?v=XwNsJFcSQx4)
     - [Lecture 3 Notes](notes/LECTURE-3.md) ([This](notes/LECTURE-3.md#rigid-body-transformations) part is very helpful for understanding the math)
 11. [Tutorial 3](https://docs.google.com/presentation/d/1GjGW39ufWI3bDcy7rMcaRYin_11soNIzCh2CtzO7580/edit?slide=id.p#slide=id.p)
-    - [Tutorial 3 Notes](notes/TUTORIAL-3.md) (optional)
+    - [Tutorial 3 Notes](notes/TUTORIAL-3.md)
 12. [Lecture and Tutorial 3 Kahoot](https://create.kahoot.it/share/lecture-and-tutorial-3/5f7bdca4-fc09-4610-9e83-a0bd9d6a16f2)
 
 ## Module B: Reactive Methods
 1. [Lecture 4](https://www.youtube.com/watch?v=qIpiqhO3ITY)
-    - [Lecture 4 Notes](notes/LECTURE-4.md) (optional)
+    - [Lecture 4 Notes](notes/LECTURE-4.md)
 2. [Tutorial 4](https://docs.google.com/presentation/d/1UCK95gx2mgJhX8YmabORjkEsaA3jR8FudmndzV3sHY4/edit?slide=id.p#slide=id.p)
-    - [Tutorial 4 Notes](notes/TUTORIAL-4.md) (optional)
+    - [Tutorial 4 Notes](notes/TUTORIAL-4.md)
 
 3. [Lecture 4 Kahoot](https://create.kahoot.it/share/lecture-4/a7d332d5-2cd8-4a25-846b-4a85c3156185)
 
@@ -52,15 +52,17 @@ Throughout using `ROS 2`, you may find this [workflow](/resources/WORKFLOW.md) d
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
 
 6. [Lecture 5](https://www.youtube.com/watch?v=5asfD-_Z9x8)
-    - [Lecture 5 Notes](notes/LECTURE-5.md) (optional)
+    - [Lecture 5 Notes](notes/LECTURE-5.md)
+
+7. [Lecture 5 Kahoot](https://create.kahoot.it/details/c0387e6b-b4cc-4c85-8e1d-2793871de368?drawer=)
 
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
 
-7. [Lab 4](labs/lab-4/)
+8. [Lab 4](labs/lab-4/)
 
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
 
-8. [Lecture 6](https://www.youtube.com/watch?v=8zr5NUS05cM)
-    - [Lecture 6 Notes](notes/LECTURE-6.md) (optional)
+9. [Lecture 6](https://www.youtube.com/watch?v=8zr5NUS05cM)
+    - [Lecture 6 Notes](notes/LECTURE-6.md)
 
 ## Module C: Mapping & Localization
