@@ -236,3 +236,25 @@ Its behavior is primarily controlled by the **lookahead distance $L$**:
 
 * **Smaller $L$** → tighter tracking but aggressive and prone to oscillation.
 * **Larger $L$** → smoother but larger tracking error; cuts corners.
+
+### Club example: aim from where the car will be
+
+At 4 m/s, the car travels 0.48 m in the 0.12 s this controller assumes between sensing and steering. **Adaptive pure pursuit** starts by asking: where will the car be when the wheels respond, if it holds its current speed and steering until then?
+
+From that predicted position, the controller finds the closest point on the racing line. It measures the lookahead **along the line**, aiming between recorded waypoints rather than jumping to the next one. Speed lengthens the lookahead on straights; an upcoming bend shortens it. Steering is still limited by the car's usual safety checks.
+
+**Try it in simulation, not on a car.** In a terminal at the root of the [car workspace](https://github.com/sfu-racerbot/Racerbot-Car-Workspace), with its [F1TENTH Gym dependencies installed](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/tree/main/tools/f1tenth_sim), run:
+
+```bash
+RACERBOT_CAR=rb2 PYTHONPATH="$PWD/.sim/python" python3 tools/f1tenth_sim/benchmark_adaptive.py \
+  --tracks indoor_wide --speeds 4 --seeds 12345 12346 \
+  --laws pure_pursuit adaptive_pure_pursuit --output .sim/pursuit.json
+```
+
+Look for four rows: one run per controller and seed. Across the two seeds, the mean time fell from **16.74 s to 14.03 s**; neither controller touched a wall. Check `peak_speed_mps` for the speed actually reached (about 4 m/s), `passed` for the track and completion checks, and `contact_steps` for collisions.
+
+To compare laps that start at speed, add `--laps 4`. Ignore the standing-start lap and compare the last three entries in each run's `lap_times_s`.
+
+**Racing another car:** If the detector picks the closest group of laser readings first, it can pick a side car, discard it as outside the viewing angle, and miss the leader ahead. It now filters by angle **before** choosing the closest group. During a pass it still uses the available side view.
+
+**Limits:** On Spielberg at a 5 m/s ceiling, adaptive pursuit hit a wall in one of two runs. On the narrow club track it waited behind a stalled opponent instead of passing. Neither car's default steering law or deadman (hold LB to drive) changed.
