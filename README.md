@@ -29,6 +29,7 @@
 ## Simulation (F1TENTH gym environment ROS2 communication bridge)
 - [Instructions](resources/F1TENTH_GYM_ROS.md)
 - [Simulation](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble)
+- [Car 2: testing stop timing on the October 30 floor](resources/CAR_2_STOP_TIMING.md)
 
 ## ROS 2
 - [ROS 2](https://github.com/ros2/ros2)
