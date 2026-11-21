@@ -1,10 +1,12 @@
 # F1TENTH gym environment ROS2 communication bridge
 These are instructions for using a containerized ROS communication bridge for the F1TENTH gym environment that turns it into a simulation in ROS2. These instructions are adapted from [f1tenth_gym_ros](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble).
 
+This is the laptop simulator for the Humble course. For testing the Jazzy club car software without hardware, see [Work safely with the club cars](SAFE_TESTING.md#test-the-car-software-in-simulation).
+
 ## Setting up the Simulation
 
 ### Entering your workspace
-1. To set up the simulation, these instructions assume you are inside your `racerbot_ws` in a Humble Docker container with **port forwarding** enabled to communicate with the simulator (i.e., `-p 127.0.0.1:8765:8765`). It is **recommended** to use the [Official Workspace](https://github.com/sfu-racerbot/racerbot_ws). If you want to set up the simulator in its own workspace (**not recommended**), follow the instructions [here](https://github.com/sfu-racerbot/f1tenth_gym_ros) instead.
+1. To set up the simulation, these instructions assume you are inside your `racerbot_ws` in a Humble Docker container with **port forwarding** enabled to communicate with the simulator (i.e., `-p 127.0.0.1:8765:8765`). It is **recommended** to use the [Humble course workspace](https://github.com/sfu-racerbot/racerbot_ws). If you want to set up the simulator in its own workspace (**not recommended**), follow the instructions [here](https://github.com/sfu-racerbot/f1tenth_gym_ros) instead.
 
 ### Set up Virtual Environment (once per workspace)
 1. Setup the virtual environment in your workspace folder:

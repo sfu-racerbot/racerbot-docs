@@ -1,10 +1,18 @@
 # SFU Racerbot Documentation
 
+## New to Racerbot?
+
+Start with [Your first Racerbot session](resources/GETTING_STARTED.md). You'll set up on a laptop and look at data from a simulated car before working with a real one.
+
+- [How Racerbot works](resources/HOW_RACERBOT_WORKS.md) explains how sensors, code and the motor talk to each other.
+- [Work safely with the club cars](resources/SAFE_TESTING.md) covers simulation, supervised testing and shutdown.
+
 ## SFU Racerbot
 - [Roadmap](ROADMAP.md)
 - [Racerbot](https://github.com/sfu-racerbot)
 - [Workflow](resources/WORKFLOW.md)
-- [Official Workspace](https://github.com/sfu-racerbot/racerbot_ws)
+- [Course workspace (ROS 2 Humble in Docker)](https://github.com/sfu-racerbot/racerbot_ws)
+- [Club car workspace (ROS 2 Jazzy)](https://github.com/sfu-racerbot/Racerbot-Car-Workspace)
 - [Labs](labs)
 - [Resources](resources)
 - [Kahoots](https://create.kahoot.it/profiles/92ba5d1e-3a52-4b1e-859e-b4fb60bf1cf7)
