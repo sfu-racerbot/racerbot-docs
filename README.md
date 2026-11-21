@@ -27,6 +27,7 @@
 - [Docker Docs](https://docs.docker.com/reference/)
 
 ## Simulation (F1TENTH gym environment ROS2 communication bridge)
+- [Compare Neural Racer with recorded drives](resources/NEURAL_RACER_REPLAY.md)
 - [Instructions](resources/F1TENTH_GYM_ROS.md)
 - [Simulation](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble)
 
