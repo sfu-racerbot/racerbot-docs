@@ -27,6 +27,7 @@
 - [Docker Docs](https://docs.docker.com/reference/)
 
 ## Simulation (F1TENTH gym environment ROS2 communication bridge)
+- [Gap-follow time trials: lap times and safety checks](resources/GAP_FOLLOW_TIME_TRIAL.md)
 - [Instructions](resources/F1TENTH_GYM_ROS.md)
 - [Simulation](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble)
 
