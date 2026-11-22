@@ -29,6 +29,7 @@
 ## Simulation (F1TENTH gym environment ROS2 communication bridge)
 - [Instructions](resources/F1TENTH_GYM_ROS.md)
 - [Simulation](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble)
+- [Compare two cornering settings on Car 2's November race floor (offline)](resources/CAR2_NOVEMBER_CORNERING.md)
 
 ## ROS 2
 - [ROS 2](https://github.com/ros2/ros2)
