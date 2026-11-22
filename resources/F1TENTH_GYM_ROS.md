@@ -94,19 +94,24 @@ the car. The headless runner tests driving without starting ROS or a viewer.
 The importer fix and comparison script are in [PR #107](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/pull/107).
 
 The importer now reads each map's `map.yaml` rules, rather than treating gray
-pixels as walls just because they are gray. It follows ROS `map_server`'s
+pixels as walls just because they are gray. It follows Nav2 Jazzy `map_server`'s
 free/occupied/unknown conventions:
 
 - `mode: trinary` (the default) uses three classes. A pixel value `v` gives an occupied
   probability `p = (255-v)/255`; `negate: 1` reverses this to `p = v/255`.
-  Below `free_thresh` is free; above `occupied_thresh` is occupied.
-  Everything between, including equality at either threshold, is unknown.
-- `mode: scale` uses the same probability, turning the interval between those thresholds into costs from
+  `p <= free_thresh` is free; `p >= occupied_thresh` is occupied.
+  Values strictly between the thresholds are unknown.
+- `mode: scale` uses the same inclusive boundaries, turning values strictly between the thresholds into costs from
   0 to 100. `mode: raw` reads pixel values 0–100 directly, ignores `negate`,
   and treats values above 100 as unknown.
 - Gym needs a two-choice map: free or wall. **Unknown stays wall**, matching
   the ROS racing stack's refusal to drive into unobserved space.
   For scale/raw costs, values below 50 are free; 50 and above are walls.
+
+For the driveable region, the importer prefers an enclosed race loop over a
+free background connected to the image border. An explicit seed (a point
+inside the desired free region) takes precedence. If no enclosed loop is
+available, it falls back to the largest connected free region.
 
 **Why this matters:** on Car 2's rebuilt Nov 9 map, pixel value 205 is free
 under `free_thresh: 0.25`. The old importer added a false wall at world
