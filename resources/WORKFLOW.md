@@ -1,5 +1,7 @@
 # Workflow
 
+This workflow is for the Humble course workspace in Docker, not the software running on the club cars. [Choose the right workspace](GETTING_STARTED.md#choose-your-workspace) before you start.
+
 ## Initial Setup (only done once)
 1. Create a workspace following the `README` [here](https://github.com/sfu-racerbot/racerbot_ws).
 2. Set up the simulator in the workspace following the instructions [here](https://github.com/sfu-racerbot/racerbot-docs/blob/main/resources/F1TENTH_GYM_ROS.md).

@@ -1,10 +1,12 @@
 # F1TENTH gym environment ROS2 communication bridge
 These are instructions for using a containerized ROS communication bridge for the F1TENTH gym environment that turns it into a simulation in ROS2. These instructions are adapted from [f1tenth_gym_ros](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble).
 
+This is the laptop simulator for the Humble course. For testing the Jazzy club car software without hardware, see [Work safely with the club cars](SAFE_TESTING.md#test-the-car-software-in-simulation).
+
 ## Setting up the Simulation
 
 ### Entering your workspace
-1. To set up the simulation, these instructions assume you are inside your `racerbot_ws` in a Humble Docker container with **port forwarding** enabled to communicate with the simulator (i.e., `-p 127.0.0.1:8765:8765`). It is **recommended** to use the [Official Workspace](https://github.com/sfu-racerbot/racerbot_ws). If you want to set up the simulator in its own workspace (**not recommended**), follow the instructions [here](https://github.com/sfu-racerbot/f1tenth_gym_ros) instead.
+1. To set up the simulation, these instructions assume you are inside your `racerbot_ws` in a Humble Docker container with **port forwarding** enabled to communicate with the simulator (i.e., `-p 127.0.0.1:8765:8765`). It is **recommended** to use the [Humble course workspace](https://github.com/sfu-racerbot/racerbot_ws). If you want to set up the simulator in its own workspace (**not recommended**), follow the instructions [here](https://github.com/sfu-racerbot/f1tenth_gym_ros) instead.
 
 ### Set up Virtual Environment (once per workspace)
 1. Setup the virtual environment in your workspace folder:
@@ -29,10 +31,9 @@ If you do not have the f1tenth_gym_ros package inside `/racerbot_ws/src` then fo
 cd /racerbot_ws/src
 git clone -b dev-humble https://github.com/f1tenth/f1tenth_gym_ros.git
 ```
-2. Clone `f1tenth_gym` inside `f1tenth_gym_ros`:
+2. If the `f1tenth_gym` folder is missing, clone it inside `f1tenth_gym_ros`. If it's already there, check that it's the `dev-humble` checkout. Don't delete a folder to repeat this step.
 ```bash
 cd /racerbot_ws/src/f1tenth_gym_ros
-rm -rf f1tenth_gym
 git clone -b dev-humble https://github.com/f1tenth/f1tenth_gym.git
 ```
 
@@ -47,7 +48,7 @@ pip install -e .
 ```bash
 cd /racerbot_ws
 rosdep update
-rosdep install -i --from-path src --rosdistro humble -y
+rosdep install -i --from-paths src --rosdistro humble -y
 colcon build
 ```
 
@@ -60,25 +61,25 @@ source install/local_setup.bash
 ```
 2. Launch the simulator:
 ```bash
-ros2 launch f1tenth_gym_ros gym_bridge_launch.py
+ros2 launch f1tenth_gym_ros gym_bridge_launch.py open_foxglove:=false
 ```
-3. Open [Foxglove](https://app.foxglove.dev/)
+3. The simulator is now running. For a terminal-only exercise, leave it running and skip the remaining steps. To see the car on a map, open [Foxglove](https://app.foxglove.dev/) in your laptop browser.
 4. Create an account
 5. Click on `Open Connection`, then click `Foxglove WebSocket` and paste in the websocket's address printed in the terminal in blue i.e `[INFO] [launch.user]: Foxglove WebSocket: ws://localhost:8765`. **Just put `ws://localhost:8765` as that is almost always the address.** If you can see the topics on the left, then the connection is complete.
 6. To visualize the simulation, you will need to change layout by importing the layout file `gym_bridge_foxglove.json` in the config folder of this package.
    - Click on the top right button `default` (Might be named something different but it is the closest button on the right to "ws://localhost:8765" in the top middle)
    - Click import from file and open the `gym_bridge_foxglove.json` inside `racerbot_ws/src/f1tenth_gym_ros/config/foxglove` folder.
 7. You can then run another node by creating another bash session in `tmux` or a separate terminal.
-8. Extra: [Foxglove Documentation](https://docs.foxglove.dev/docs) and [Slides showing how to use the simulator](https://docs.google.com/presentation/d/1ZH0S_Dn8dQs1g3JOH7Dz7HEdvfNYPRSv/edit?slide=id.g392d82339e7_2_105#slide=id.g392d82339e7_2_105). Foxglove is the recommended setup, but if you prefer RViz (old Gym setup), you can also use rviz to visualize the sim, with `gym_bridge.rviz` available in the launch folder of this package too.
+8. Extra: [Foxglove Documentation](https://docs.foxglove.dev/docs) and [Slides showing how to use the simulator](https://docs.google.com/presentation/d/1ZH0S_Dn8dQs1g3JOH7Dz7HEdvfNYPRSv/edit?slide=id.g392d82339e7_2_105#slide=id.g392d82339e7_2_105). For RViz instead, use `config/rviz/gym_bridge.rviz` in the simulator package.
 
 ## Configuring the simulation
 - The configuration file for the simulation is at `f1tenth_gym_ros/config/sim.yaml`.
 - Topic names and namespaces can be configured but is recommended to leave unchanged.
 - The map can be changed via the `map_path` parameter. It can be a package-relative path like `maps/levine` or a built-in gym track name like `Spielberg`. The map follows the ROS convention; the image file and the `yaml` file should live together.
-- The `num_agent` parameter can be changed to either 1 or 2 for single or two agent racing. Multi-agent racing (>2) is planned, but not yet supported by the gym_ros.
+- Leave `num_agent` at 1 for your first session. To simulate more cars, set a starting pose for each opponent.
 - The ego and opponent starting pose can also be changed via parameters, these are in the global map coordinate frame.
 
-The entire directory of the repo is mounted to a workspace `/sim_ws/src` as a package. All changes made in the repo on the host system will also reflect in the container. After changing the configuration, run `colcon build` again in the container workspace to make sure the changes are reflected.
+The course container shares your laptop's `racerbot_ws/src` folder at `/racerbot_ws/src`. After editing the configuration, rebuild from `/racerbot_ws` and restart the simulator.
 
 ## Topics published by the simulation
 
@@ -110,13 +111,13 @@ In **single** agent:
 
 `/drive`: The ego agent's drive command via `AckermannDriveStamped` messages
 
-`/initalpose`: This is the topic for resetting the ego's pose via RViz's Foxglove's 2D Pose Estimate tool.
+`/initialpose`: The topic for resetting the ego car's pose with the 2D Pose Estimate tool in RViz or Foxglove.
 
 In **two** agents:
 
 In addition to all topics in the single agent scenario, these topics are also available:
 
-`/opp_drive`: The opponent agent's drive command via `AckermannDriveStamped` messages. Note that you'll need to publish to **both** the ego's drive topic and the opponent's drive topic for the cars to move when using 2 agents.
+`/opp_drive`: The opponent's drive command via `AckermannDriveStamped` messages. Each simulated car responds to its own drive topic.
 
 `/goal_pose`: This is the topic for resetting the opponent agent's pose via RViz's or Foxglove's 2D Goal Pose tool.
 
@@ -132,7 +133,7 @@ Then, press `i` to move forward, `u` and `o` to move forward and turn, `,` to mo
 
 There are multiple ways to launch your own agent to control the vehicles.
 
-- The first one is creating a new package for your agent in the `/sim_ws` workspace inside the sim container. After launch the simulation, launch the agent node in another bash session while the sim is running.
+- In the course container, create a package under `/racerbot_ws/src` and build it from `/racerbot_ws`. Leave the simulator running and launch the agent in another sourced Bash session.
 - The second one is to create a new ROS 2 container for you agent node. Then create your own package and nodes inside. Launch the sim container and the agent container both. With default networking configurations for `docker`, the behavior is to put The two containers on the same network, and they should be able to discover and talk to each other on different topics. If you're using noVNC, create a new service in `docker-compose.yml` for your agent node. You'll also have to put your container on the same network as the sim and novnc containers.
 
 
