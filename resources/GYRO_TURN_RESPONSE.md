@@ -17,7 +17,7 @@ Car 1 also has a saved experiment, not a new default. Its turning-rate error imp
 
 ## Try one paired lap comparison
 
-**Terminal — development computer.** Use the [tested workspace revision](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/tree/c5abcc6fd511001527aeb76daccf60eeb12b1529) with the simulator installed. Run from its root, without ROS or a connection to either car.
+**Terminal — development computer.** Use the [merged workspace revision](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/tree/3ad77c8a0f12a1f0c6b35440784663a0bb0cf8d9) with the simulator installed. Run from its root, without ROS or a connection to either car.
 
 ```bash
 (
@@ -44,4 +44,4 @@ done
 
 **If it doesn't:** an unknown flag means your workspace lacks the experiment. Use the linked revision. A missing line or map means the workspace's November course data is unavailable; do not substitute a different course and compare its times to this table.
 
-See the [maintainer handoff](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/c5abcc6fd511001527aeb76daccf60eeb12b1529/docs/ai-handoff/turn-response.md) for the independent turning-rate check, the map-based estimates, what cannot be inferred from wheel speed, and the next measurement needed.
+See the [maintainer handoff](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/3ad77c8a0f12a1f0c6b35440784663a0bb0cf8d9/docs/ai-handoff/turn-response.md) for the independent turning-rate check, the map-based estimates, what cannot be inferred from wheel speed, and the next measurement needed.
