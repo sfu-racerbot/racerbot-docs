@@ -28,6 +28,7 @@
 
 ## Simulation (F1TENTH gym environment ROS2 communication bridge)
 - [Instructions](resources/F1TENTH_GYM_ROS.md)
+- [Check where Car 2's simulated laser starts](resources/CAR2_SIM_LIDAR_MOUNT.md)
 - [Simulation](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble)
 
 ## ROS 2
