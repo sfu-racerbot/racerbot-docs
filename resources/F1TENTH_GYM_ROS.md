@@ -1,4 +1,9 @@
 # F1TENTH gym environment ROS2 communication bridge
+
+> **Who this is for:** club members setting up the simulator or importing saved maps.
+> **Read first:** the [repository overview](../README.md).
+> **You'll be able to:** run the ROS bridge and find the saved-map comparison below.
+
 These are instructions for using a containerized ROS communication bridge for the F1TENTH gym environment that turns it into a simulation in ROS2. These instructions are adapted from [f1tenth_gym_ros](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble).
 
 ## Setting up the Simulation
@@ -79,6 +84,80 @@ ros2 launch f1tenth_gym_ros gym_bridge_launch.py
 - The ego and opponent starting pose can also be changed via parameters, these are in the global map coordinate frame.
 
 The entire directory of the repo is mounted to a workspace `/sim_ws/src` as a package. All changes made in the repo on the host system will also reflect in the container. After changing the configuration, run `colcon build` again in the container workspace to make sure the changes are reflected.
+
+## Importing saved maps into the headless Gym runner
+
+This section is for `tools/f1tenth_sim/track_import.py` in
+[Racerbot-Car-Workspace](https://github.com/sfu-racerbot/Racerbot-Car-Workspace),
+not the container bridge setup above. SLAM means building a map while locating
+the car. The headless runner tests driving without starting ROS or a viewer.
+The importer fix and comparison script are in [PR #107](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/pull/107).
+
+The importer now reads each map's `map.yaml` rules, rather than treating gray
+pixels as walls just because they are gray. It follows ROS `map_server`'s
+free/occupied/unknown conventions:
+
+- `mode: trinary` (the default) uses three classes. A pixel value `v` gives an occupied
+  probability `p = (255-v)/255`; `negate: 1` reverses this to `p = v/255`.
+  Below `free_thresh` is free; above `occupied_thresh` is occupied.
+  Everything between, including equality at either threshold, is unknown.
+- `mode: scale` uses the same probability, turning the interval between those thresholds into costs from
+  0 to 100. `mode: raw` reads pixel values 0–100 directly, ignores `negate`,
+  and treats values above 100 as unknown.
+- Gym needs a two-choice map: free or wall. **Unknown stays wall**, matching
+  the ROS racing stack's refusal to drive into unobserved space.
+  For scale/raw costs, values below 50 are free; 50 and above are walls.
+
+**Why this matters:** on Car 2's rebuilt Nov 9 map, pixel value 205 is free
+under `free_thresh: 0.25`. The old importer added a false wall at world
+position **(4.113, 4.205) metres**, image pixel **(row 207, column 188)**.
+All four pure-pursuit contact episodes in the matched benchmark hit that cell.
+
+Five seeds per controller, with a three-lap target per episode, gave:
+
+| Controller | Collision episodes, before → after | Completed laps, before → after |
+|---|---|---|
+| `pure_pursuit` (follows a planned path) | 4/5 → 0/5 | 3/15 → 12/15 |
+| `gap_follow` (steers through open space) | 0/5 → 0/5 | 15/15 → 15/15 |
+
+Pure-pursuit seed 12347 stalled at zero laps on both maps; the fix did not
+solve that failure. None of the 28,745 sampled after-run car-base positions
+left the old imported free region. This is evidence for these runs, not a
+guarantee for every future run. Controllers and physics were unchanged.
+
+**Centreline caveat:** a gray background whose occupied probability is below
+`free_thresh` now correctly imports as free. That can prevent the importer from finding an enclosed
+loop for its centreline (the path around the middle of the circuit).
+
+Use Python's `centerline_from`, or the command-line `--centerline-from`, to
+take that path from another map of the same place. This does not change
+the imported map's free/wall classification.
+
+**Rerun the comparison — one terminal, from the Racerbot-Car-Workspace root,**
+using a checkout containing PR #107 and the
+[headless simulator setup](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/main/docs/simulator.md#one-time-setup).
+This uses the rebuilt Nov 9 map and the recorded map for its centreline:
+
+```bash
+PYTHONPATH=.sim/python:.sim/f1tenth_gym:src/gap_follow:src/pure_pursuit:src/imu_bridge:tools/f1tenth_sim:tools \
+NUMBA_CACHE_DIR=.sim/numba-cache \
+python3 tools/dev/benchmark_map_import.py \
+  --car rb2 --before-ref '5f55aad^' \
+  --map-yaml data/rb2/racerbot_auto/20261109-185146-rebuilt/map.yaml \
+  --centerline-from data/rb2/racerbot_auto/20261109-185306/map.yaml \
+  --seeds 12345 12346 12347 12348 12349 --laps 3 --timeout 180 \
+  --output "$HOME/work/nov9-map-import"
+```
+
+Success means 20 episode records are printed and saved in `results.json` in
+the output folder, alongside contact coordinates and pose traces.
+
+The script loads the old importer from Git and uses a fresh seeded plant
+(the simulated car) and controller for every episode. It checks chassis
+contact against map cells independently of Gym's collision flag.
+
+Use a new output-folder name for each rerun; an existing folder is refused.
+Keep generated maps and run outputs out of commits.
 
 ## Topics published by the simulation
 
