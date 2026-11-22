@@ -86,6 +86,7 @@ Introduces vehicle states, dynamics models, tire behavior, understeer/oversteer,
 
 9. [Lecture 6](https://www.youtube.com/watch?v=8zr5NUS05cM)
     - [Lecture 6 Notes](notes/LECTURE-6.md)
+    - [Club example: measuring real-car motion and checking simulator calibration](resources/SLAM_SIM_CALIBRATION.md) — November 2026 SLAM results, rejected tyre fits and the rb2 speed-scale update.
 
 ## Module C: Mapping & Localization
 

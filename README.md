@@ -29,6 +29,7 @@
 ## Simulation (F1TENTH gym environment ROS2 communication bridge)
 - [Instructions](resources/F1TENTH_GYM_ROS.md)
 - [Simulation](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble)
+- [Does the simulator drive like the real car? November SLAM measurements and calibration](resources/SLAM_SIM_CALIBRATION.md)
 
 ## ROS 2
 - [ROS 2](https://github.com/ros2/ros2)
