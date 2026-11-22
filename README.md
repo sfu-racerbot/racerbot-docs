@@ -41,6 +41,7 @@ Start with [Your first Racerbot session](resources/GETTING_STARTED.md). You'll s
 - [Compare two cornering settings on Car 2's November race floor (offline)](resources/CAR2_NOVEMBER_CORNERING.md)
 
 ## ROS 2
+- [Read a November race recording on your laptop (no ROS install)](resources/NOVEMBER_RUN_DATA.md)
 - [ROS 2](https://github.com/ros2/ros2)
 - [Docs](https://docs.ros.org/en/humble/index.html)
 - [Tutorial](https://docs.ros.org/en/humble/Tutorials.html)
