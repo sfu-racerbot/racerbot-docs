@@ -28,6 +28,7 @@
 
 ## Simulation (F1TENTH gym environment ROS2 communication bridge)
 - [Instructions](resources/F1TENTH_GYM_ROS.md)
+- [Car 2 results: changing the steering target by track section](resources/car2-section-lookahead.md)
 - [Simulation](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble)
 
 ## ROS 2
