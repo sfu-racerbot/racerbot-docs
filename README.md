@@ -31,6 +31,7 @@
 - [Simulation](https://github.com/f1tenth/f1tenth_gym_ros/tree/dev-humble)
 
 ## ROS 2
+- [Read a November race recording on your laptop (no ROS install)](resources/NOVEMBER_RUN_DATA.md)
 - [ROS 2](https://github.com/ros2/ros2)
 - [Docs](https://docs.ros.org/en/humble/index.html)
 - [Tutorial](https://docs.ros.org/en/humble/Tutorials.html)
