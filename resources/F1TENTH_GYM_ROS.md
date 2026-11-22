@@ -108,13 +108,24 @@ free/occupied/unknown conventions:
   the ROS racing stack's refusal to drive into unobserved space.
   For scale/raw costs, values below 50 are free; 50 and above are walls.
 
+**Unexplored space in saved maps (`mode: trinary`):** ROS's map writer,
+`map_saver`, uses the exact code `205` for unknown (`50` with `negate: 1`).
+If a higher `free_thresh` (above `0.196`, such as `0.25`) decodes it as free,
+Gym still treats it as unexplored.
+
+These pixels become floor only in holes of **0.05 m² or less, including the
+limit**, fully surrounded by known free cells (including diagonals). Larger
+areas, border-touching areas, and holes touching walls stay walls. Other light
+grays, such as `200`, follow the YAML thresholds normally.
+
 For the driveable region, the importer prefers an enclosed race loop over a
 free background connected to the image border. An explicit seed (a point
-inside the desired free region) takes precedence. If no enclosed loop is
-available, it falls back to the largest connected free region.
+inside the desired free region) takes precedence. Without a seed, it tries
+other regions if its first choice cannot form a usable loop.
 
-**Why this matters:** on Car 2's rebuilt Nov 9 map, pixel value 205 is free
-under `free_thresh: 0.25`. The old importer added a false wall at world
+**Why this matters:** on Car 2's rebuilt Nov 9 map, the isolated `205` cell
+decodes as free under `free_thresh: 0.25` and remains floor under the
+safeguard above. The old importer added a false wall at world
 position **(4.113, 4.205) metres**, image pixel **(row 207, column 188)**.
 All four pure-pursuit contact episodes in the matched benchmark hit that cell.
 
@@ -130,13 +141,14 @@ solve that failure. None of the 28,745 sampled after-run car-base positions
 left the old imported free region. This is evidence for these runs, not a
 guarantee for every future run. Controllers and physics were unchanged.
 
-**Centreline caveat:** a gray background whose occupied probability is below
-`free_thresh` now correctly imports as free. That can prevent the importer from finding an enclosed
-loop for its centreline (the path around the middle of the circuit).
+**Centreline caveat:** a gray background other than the unknown code can still
+import as free under the YAML thresholds. That can prevent the importer from
+finding an enclosed loop for its centreline (the path around the middle of the circuit).
 
 Use Python's `centerline_from`, or the command-line `--centerline-from`, to
-take that path from another map of the same place. This does not change
-the imported map's free/wall classification.
+take that path from another map of the same place. The map the car drives still
+uses its own YAML rules and the safeguard above; the reference path also helps
+select the intended free region.
 
 **Rerun the comparison — one terminal, from the Racerbot-Car-Workspace root,**
 using a checkout containing PR #107 and the
