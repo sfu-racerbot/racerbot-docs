@@ -228,6 +228,14 @@ $$
 
 ![Pure Pursuit Waypoints](/assets/module-c/lecture-10/pure-pursuit-waypoints.png)
 
+### Why check the path between waypoints?
+
+On a test circle with a 5 m radius, the club's offline planner can move a waypoint sideways by at most 0.25 m in one pass. This limit is called the **trust region**. The old planner respected it at every waypoint, but the smooth curve joining them bulged outward: one new point landed at a radius of 5.250001622 m.
+
+The planner now smooths the sideways move separately from the starting path, in coordinates that keep it within its limit. It spaces the new waypoints along that curve. The largest radius in the same test was 5.250000000 m.
+
+This limit applies to one planning step. It does not replace the wall-clearance and steering checks on the finished line.
+
 ## Key Takeaway
 
 **Pure Pursuit tracks a path by continuously selecting a point ahead of the vehicle and steering along the circular arc that reaches that point.**
