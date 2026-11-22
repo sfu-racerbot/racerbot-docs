@@ -1,5 +1,7 @@
 # Roadmap
 
+New to the club? [Start here](resources/GETTING_STARTED.md). This course uses the Humble learning environment; the physical cars use a separate Jazzy workspace.
+
 Throughout using `ROS 2`, you may find this [workflow](/resources/WORKFLOW.md) document to be very helpful.
 
 ## Module A: Introduction to ROS, RoboRacer & the Simulator
@@ -34,7 +36,7 @@ Introduces range sensors and Time-to-Collision (TTC) based safety methods for de
 Develop a ROS 2 safety node that uses LiDAR-based iTTC to detect imminent collisions and trigger Automatic Emergency Braking (AEB).
 
 9. [Lab 2](labs/lab-2/)
-    - Make sure you set up the [Official Workspace](https://github.com/sfu-racerbot/racerbot_ws) for this lab and for the future.
+    - Set up the [Humble course workspace](https://github.com/sfu-racerbot/racerbot_ws) for this lab and the later labs.
 
 <hr style="border-top: 1px dotted #bbb; background: transparent;">
 
