@@ -55,4 +55,38 @@ Give both versions identical starting poses, floor model and sensor-noise seeds.
 
 **4. Decide before chasing lap time.** Require zero contacts and non-finishes, and no loss of minimum body-to-wall clearance. Look for lower 95th-percentile distance from the line without slower median flying laps. Record time spent using the table: a lap driven entirely on fallback cannot demonstrate a gain.
 
-This is a test proposal. No new controller was run, no car settings changed, and there is no Car 2 speed or safety claim.
+## Car 2 result: keep unchanged adaptive pursuit
+
+The steering table **did not qualify**. On both November 11 seeds it slightly reduced distance from the line, but every flying lap was slower. On the synthetic oval it also brought the body closer to the wall. No hardware settings changed.
+
+### Did the table predict real turns?
+
+The [fit](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/c619c4d1f39e31501a54ac253a01c7dc4a912a4d/tools/f1tenth_sim/fit_steering_table.py) used 132 samples from drive 135934 and 91 from 142254. Forward speed came from matching laser scans; body turn rate came from the calibrated VESC gyro. The steering input was the command 50 ms earlier, not a measured wheel angle.
+
+The fit kept three supported ranges by speed and turn direction. The table made **no turn-rate predictions** on either reserved drive. With fallback, its mean absolute turn-rate error was therefore identical to the geometric baseline:
+
+| Reserved drive | Steady-turn samples | Indexed / pooled predictions | Baseline error (rad/s) | Indexed with fallback | Pooled with fallback |
+|---|---:|---:|---:|---:|---:|
+| 140322 | 85 | 0 / 21 | 0.180 | 0.180 | 0.183 |
+| 141227 | 39 | 0 / 4 | 0.228 | 0.228 | 0.230 |
+
+These drives check table coverage, not simulator accuracy. Drive 152132 already contributed to the November floor model. It is development context, **not a holdout**.
+
+### What happened on track in simulation?
+
+We ran the frozen table anyway to measure its effect, not to promote it. The [paired simulator](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/c619c4d1f39e31501a54ac253a01c7dc4a912a4d/tools/f1tenth_sim/compare_steering_table.py) uses identical standing starts, noise seeds, line and speed profile within each pair. Both arms retain the same safety checks and speed ceilings. This was a solo test with passing off, not a traffic or hardware test.
+
+Times below are seconds. **Start** runs from rest to a gate one waypoint before the starting point. Each **flying** lap then covers a full circuit between gate crossings. Wall clearance is the smallest sampled chassis-to-map distance; the map grid is 5 cm, so this is not a sub-centimetre physical measurement.
+
+| Course | Seed | Steering | Start | Flying 1 | Flying 2 | Contacts | Min wall (m) | 95th-percentile line error (m) | Table / fallback ticks |
+|---|---:|---|---:|---:|---:|---:|---:|---:|---:|
+| Nov 11 | 12345 | Adaptive | 10.724 | 10.076 | 10.046 | 0 | 0.100 | 0.250 | — |
+| Nov 11 | 12345 | Table | 10.727 | 10.079 | 10.052 | 0 | 0.100 | 0.247 | 18 / 1219 |
+| Nov 11 | 12346 | Adaptive | 10.749 | 10.065 | 10.055 | 0 | 0.100 | 0.249 | — |
+| Nov 11 | 12346 | Table | 10.746 | 10.068 | 10.078 | 0 | 0.100 | 0.246 | 11 / 1228 |
+| Synthetic oval | 12345 | Adaptive | 13.871 | 13.308 | 13.159 | 0 | 0.292 | 0.781 | — |
+| Synthetic oval | 12345 | Table | 13.875 | 13.342 | 13.151 | 0 | 0.269 | 0.777 | 27 / 1589 |
+| Synthetic oval | 12346 | Adaptive | 13.872 | 13.126 | 13.072 | 0 | 0.292 | 0.767 | — |
+| Synthetic oval | 12346 | Table | 13.870 | 13.228 | 13.070 | 0 | 0.269 | 0.765 | 36 / 1572 |
+
+All eight starts and finishes succeeded. On the saved map, the median flying lap went from **10.060 s to 10.073 s**. The table supplied steering on only 1.17% of its ticks. Two seeds and a model fitted partly on the same day cannot establish a real-car gain.
