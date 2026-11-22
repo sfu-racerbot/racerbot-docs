@@ -258,3 +258,13 @@ To compare laps that start at speed, add `--laps 4`. Ignore the standing-start l
 **Racing another car:** If the detector picks the closest group of laser readings first, it can pick a side car, discard it as outside the viewing angle, and miss the leader ahead. It now filters by angle **before** choosing the closest group. During a pass it still uses the available side view.
 
 **Limits:** On Spielberg at a 5 m/s ceiling, adaptive pursuit hit a wall in one of two runs. On the narrow club track it waited behind a stalled opponent instead of passing. Neither car's default steering law or deadman (hold LB to drive) changed.
+
+### Why a canceled pass still needs a speed limit
+
+In one simulated race, the car gave up on a pass just as the leader was slowing to a stop. Canceling the pass erased the last place the laser had seen the leader. While waiting to recognize it again, the car accelerated. By the time it braked, it was too close to stop.
+
+A local, simulator-tested fix separates two decisions. For braking, remember where and when the leader was last seen, without assuming it is still moving. For another pass, require fresh sightings. While that last position still bounds the road ahead, limit the command to a crawl (at most 0.25 m/s here). A closer obstacle can still force a stop.
+
+In the same race, the car stopped **0.87 m short** rather than hitting the leader. It waited until the 60 s time limit; it did not pass or finish. With passing off, it still finished all eight moving-leader races. No car took the lead from behind in the paired trials.
+
+**Keep passing off.** These are simulator results, not a change to either car's settings or evidence that it is safe to pass on the floor.
