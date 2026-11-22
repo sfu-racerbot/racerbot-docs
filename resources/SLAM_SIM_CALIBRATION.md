@@ -18,7 +18,7 @@ We now match recorded laser scans to a saved map, measure the motion between tho
 
 This page describes the newer **Racerbot-Car-Workspace (ROS 2 Jazzy)** analysis, not a replacement for the older Humble classroom simulator instructions. The experiments run offline: **no physical car moves**.
 
-The [workspace's detailed November report](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/8b6e57907e0f667f4c156d0489e20edf8a0afa25/docs/sim-calibration.md#measuring-the-real-car-from-slam-localization-november-2026) is the source for the results below. The link is pinned to the documented revision so its numbers remain reproducible.
+The [workspace's detailed November report](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/d77bd05c0d0339566ba3f5f21202413b5dd14394/docs/sim-calibration.md#measuring-the-real-car-from-slam-localization-november-2026) is the source for the results below. The link is pinned to the documented revision so its numbers remain reproducible.
 
 ## The three-stage pipeline
 
@@ -28,7 +28,7 @@ The [workspace's detailed November report](https://github.com/sfu-racerbot/Racer
 
 ### Try one recorded run
 
-**One analysis terminal, inside the Racerbot-Car-Workspace checkout, not this docs repository.** First follow that workspace's [Gym setup](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/8b6e57907e0f667f4c156d0489e20edf8a0afa25/docs/simulator.md). You also need the recorded run and map shown below, and its analysis Python environment with `rosbags==0.10.11` installed; recordings are not supplied by this docs repository.
+**One analysis terminal, inside the Racerbot-Car-Workspace checkout, not this docs repository.** First follow that workspace's [Gym setup](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/d77bd05c0d0339566ba3f5f21202413b5dd14394/docs/simulator.md). You also need the recorded run and map shown below, and its analysis Python environment with `rosbags==0.10.11` installed; recordings are not supplied by this docs repository.
 
 ```bash
 PY="$HOME/.local/racerbot-analysis-venv/bin/python"
@@ -147,4 +147,4 @@ Positive bias means the simulator is faster than measured. rb2's October speed m
 - **No rack sensor:** the actual steering angle was not recorded. Initial steering uses the command, not a measured wheel angle.
 - **No physical validation:** differentiation amplifies pose noise, and sparse steady driving does not reliably identify axle forces. These are offline comparisons, not permission to skip the physical car's safety checks.
 
-For full manifests, mean/median tables and reproducible fitting commands, continue with the [workspace calibration report](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/8b6e57907e0f667f4c156d0489e20edf8a0afa25/docs/sim-calibration.md#measuring-the-real-car-from-slam-localization-november-2026).
+For full manifests, mean/median tables and reproducible fitting commands, continue with the [workspace calibration report](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/d77bd05c0d0339566ba3f5f21202413b5dd14394/docs/sim-calibration.md#measuring-the-real-car-from-slam-localization-november-2026).
