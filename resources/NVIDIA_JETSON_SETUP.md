@@ -1,7 +1,5 @@
 # How to Setup The NVIDIA Jetson Orin Nano
 
-This is a device setup reference, not part of new-member setup. Do not flash or reconfigure a club Jetson without the car maintainer. Start with the [current workspace hardware reference](https://github.com/sfu-racerbot/Racerbot-Car-Workspace/blob/main/docs/hardware-reference.md) if you're working on a club car.
-
 ## Prerequisites
 You need to be either running `Windows 10/11` or `Ubuntu 22.04 LTS` (Cannot be Ubuntu derivatives such as Linux Mint, has to be Ubuntu 22.04)
 
